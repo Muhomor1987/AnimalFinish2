@@ -41,7 +41,9 @@ public class Statistics implements Runnable {
 
         for (Organisms value : Organisms.values()
         ) {
-            System.out.print(constants.getICON().get(value) + ": " + statistics.get(value) + "  ");
+            synchronized (statistics) {
+                System.out.print(constants.getICON().get(value) + ": " + statistics.get(value) + "  ");
+            }
         }
         System.out.println();
 

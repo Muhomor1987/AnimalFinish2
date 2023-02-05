@@ -10,7 +10,8 @@ import java.util.HashMap;
 @Getter
 public class Constants implements Serializable {
 
-    int xCoordinate = 100;
+    int lifeCycleTime = 1;
+    int xCoordinate = 20;
     int yCoordinate = 20;
 
     private final HashMap<Organisms, Integer> maxAnimalForKindOfLocations = new HashMap<Organisms, Integer>() {

@@ -35,15 +35,16 @@ public class CreatorLocations implements Runnable {
                     if (island.getLocations()[i][j].getLock().tryLock(30, TimeUnit.MILLISECONDS)) {
                         if (!island.getLocations()[i][j].isCreated()) {
                             island.getLocations()[i][j].setCreated(true);
-                            ConcurrentHashMap<Organisms, Integer> countAnimalsMapOnLocationTMP = new ConcurrentHashMap<>();
+/*                            ConcurrentHashMap<Organisms, Integer> countAnimalsMapOnLocationTMP = new ConcurrentHashMap<>();
                             for (Organisms k : Organisms.values()
                             ) {
                                 countAnimalsMapOnLocationTMP.put(k, ThreadLocalRandom.current().nextInt(constants.getMaxAnimalForKindOfLocations().get(k)));
                             }
-                            island.getLocations()[i][j].setCountAnimalsMapOnLocation(countAnimalsMapOnLocationTMP);
+                            island.getLocations()[i][j].setCountAnimalsMapOnLocation(countAnimalsMapOnLocationTMP);*/
                             for (Organisms k : Organisms.values()
                             ) {
-                                for (int l = 0; l < countAnimalsMapOnLocationTMP.get(k); l++) {
+                                int countAnimalsOnLocationType = ThreadLocalRandom.current().nextInt(constants.getMaxAnimalForKindOfLocations().get(k));
+                                for (int l = 0; l < countAnimalsOnLocationType ; l++) {
                                     fabricOfAnimals.createNewAnimals(island.getLocations()[i][j],k,statistics);
                                 }
                             }

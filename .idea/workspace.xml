@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="baee51d4-e38d-4883-af51-04c05f9a350b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/work/Eater.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/work/GrassGrowth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/work/Lifer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/work/Mover.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/work/Reproducer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/IslandStructure/Island.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IslandStructure/Island.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/IslandStructure/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IslandStructure/Location.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/IslandStructure/Statistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IslandStructure/Statistics.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entities/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Organisms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Organisms.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/util/CreatorLocations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/CreatorLocations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/util/FabricOfAnimals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/FabricOfAnimals.java" afterDir="false" />
@@ -62,10 +63,15 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.fileTypes",
+    "settings.editor.selected.configurable": "preferences.rainbow.brackets",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="work" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
@@ -95,10 +101,30 @@
       <option name="presentableId" value="Default" />
       <updated>1675248920813</updated>
       <workItem from="1675248921958" duration="9567000" />
+      <workItem from="1675507801767" duration="757000" />
+      <workItem from="1675599111675" duration="31817000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/IslandStructure/Location.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="constants" />
+        <watch expression="iterator" />
+        <watch expression="statistics.statistics" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

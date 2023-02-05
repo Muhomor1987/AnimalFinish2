@@ -10,6 +10,7 @@ import entities.Organisms;
 import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.Marker;
 
 
 import java.util.ArrayList;
@@ -71,7 +72,7 @@ public class FabricOfAnimals {
     }
 
 
-    public void createNewAnimals(Location location, Organisms TYPE, Statistics statistics) {
+    synchronized public void createNewAnimals(Location location, Organisms TYPE, Statistics statistics) {
         try {
             if (location.getLock().tryLock(30, TimeUnit.MILLISECONDS)) {
                 if (location.getCountAnimalsMapOnLocation().get(TYPE) < constants.getMaxAnimalForKindOfLocations().get(TYPE)) {
@@ -83,22 +84,22 @@ public class FabricOfAnimals {
                             throw new RuntimeException(e);
                         }
                         finally {
-                            logger.debug("Не получилось взять из пула с животными хотя проверка была пройдена");
+                            logger.error("Не получилось взять из пула с животными хотя проверка была пройдена");
                         }
                     } else {
                         Entity entity = mapOfFounders.get(TYPE).clone();
-                        logger.info("Создаём животного типа "+ TYPE );
-                        logger.info(Thread.currentThread().getName());
+//                        logger.info("Создаём животного типа "+ TYPE );
+//                        logger.info(Thread.currentThread().getName());
                         entity.name = entity.getTYPE().name() + statistics.getStatistics().get(TYPE);
                         entity.weight = ThreadLocalRandom.current().nextDouble(constants.getMaxWeight().get(TYPE) / 2, constants.getMaxWeight().get(TYPE));
-                        logger.info("Оно получает имя и вес "+ entity.name+" "+entity.weight);
+//                        logger.info("Оно получает имя и вес "+ entity.name+" "+entity.weight);
                         location.getAnimalsIn().add(entity);
-                        logger.info("И добавляется в логкацию "+ location);
+//                        logger.info("И добавляется в логкацию "+ location);
                     }
                     statistics.getStatistics().replace(TYPE, statistics.getStatistics().get(TYPE) + 1);
-                    logger.info("Статистика животных становиться "+ statistics.getStatistics().get(TYPE) +" "+TYPE);
+//                    logger.info("Статистика животных становиться "+ statistics.getStatistics().get(TYPE) +" "+TYPE);
                     location.getCountAnimalsMapOnLocation().replace(TYPE, location.getCountAnimalsMapOnLocation().get(TYPE) + 1);
-                    logger.info("Статистика животных на локации "+ location.getCountAnimalsMapOnLocation().get(TYPE)+" "+TYPE);
+//                    logger.info("Статистика животных на локации "+ location.getCountAnimalsMapOnLocation().get(TYPE)+" "+TYPE);
                 }
             }
         } catch (InterruptedException e) {

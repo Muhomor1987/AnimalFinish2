@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="INFO">
     <Appenders>
-        <RollingFile name="LogToRollingFile" fileName="logs/hippodrome.log"
-                     filePattern="logs/hippodrome.%d{yyyy-MM-dd}.log">
+        <RollingFile name="LogToRollingFile" fileName="logs/animal.log"
+                     filePattern="logs/animal.%d{yyyy-MM-dd}.log">
             <PatternLayout>
                 <Pattern>%d %p %c{1.} %m%n</Pattern>
             </PatternLayout>
@@ -19,7 +19,7 @@
         </RollingFile>
     </Appenders>
     <Loggers>
-        <Logger name="logs/hippodrome.log" level="debug" additivity="false">
+        <Logger name="logs/animal.log" level="debug" additivity="false">
             <AppenderRef ref="LogToRollingFile"/>
         </Logger>
         <Root level="debug">
