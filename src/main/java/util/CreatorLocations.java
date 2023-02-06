@@ -5,8 +5,6 @@ import IslandStructure.Location;
 import IslandStructure.Statistics;
 import entities.Constants;
 import entities.Organisms;
-
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 

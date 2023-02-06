@@ -1,19 +1,14 @@
 package org.example;
 
 import IslandStructure.Island;
-import IslandStructure.Location;
 import IslandStructure.Statistics;
 import entities.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import util.CreatorLocations;
 import util.FabricOfAnimals;
-import work.Eater;
-import work.GrassGrowth;
-import work.Lifer;
-import work.Mover;
+import work.*;
 
-import java.util.List;
 import java.util.concurrent.*;
 
 public class Main {
@@ -45,6 +40,10 @@ public class Main {
         GrassGrowth grassGrowth = new GrassGrowth(island,fabricOfAnimals,statistics);
         ScheduledExecutorService grassGrowthThread = Executors.newSingleThreadScheduledExecutor();
         grassGrowthThread.scheduleWithFixedDelay(grassGrowth,4500,4000,TimeUnit.MILLISECONDS);
+
+        Reproducer reproducer = new Reproducer(island,fabricOfAnimals,statistics);
+        ScheduledExecutorService reproducerThread = Executors.newSingleThreadScheduledExecutor();
+        reproducerThread.scheduleWithFixedDelay(reproducer,4500,4000,TimeUnit.MILLISECONDS);
 
         Mover mover = new Mover(island);
         ScheduledExecutorService moverThread = Executors.newSingleThreadScheduledExecutor();

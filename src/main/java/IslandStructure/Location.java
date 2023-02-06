@@ -114,7 +114,9 @@ public class Location implements Runnable {
             }
             animalsForMoving.add(animalWhoEat);
             countAnimalsMapOnLocation.put(animalDeadTYPE, countAnimalsMapOnLocation.get(animalDeadTYPE) - 1);
-            statistics.getStatistics().replace(animalDeadTYPE, statistics.getStatistics().get(animalDeadTYPE) - 1);
+            synchronized (statistics) {
+                statistics.getStatistics().replace(animalDeadTYPE, statistics.getStatistics().get(animalDeadTYPE) - 1);
+            }
             fabricOfAnimals.getPoolAnimals().get(animalDeadTYPE).add(animalDead);
         }
     }

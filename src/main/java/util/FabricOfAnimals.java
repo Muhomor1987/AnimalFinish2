@@ -96,7 +96,10 @@ public class FabricOfAnimals {
                         location.getAnimalsIn().add(entity);
 //                        logger.info("И добавляется в логкацию "+ location);
                     }
-                    statistics.getStatistics().replace(TYPE, statistics.getStatistics().get(TYPE) + 1);
+
+                    synchronized (statistics) {
+                        statistics.getStatistics().replace(TYPE, statistics.getStatistics().get(TYPE) + 1);
+                    }
 //                    logger.info("Статистика животных становиться "+ statistics.getStatistics().get(TYPE) +" "+TYPE);
                     location.getCountAnimalsMapOnLocation().replace(TYPE, location.getCountAnimalsMapOnLocation().get(TYPE) + 1);
 //                    logger.info("Статистика животных на локации "+ location.getCountAnimalsMapOnLocation().get(TYPE)+" "+TYPE);

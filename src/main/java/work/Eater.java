@@ -48,7 +48,9 @@ public class Eater implements Runnable {
             }
             location.getAnimalsForMoving().add(animalWhoEat);
             location.getCountAnimalsMapOnLocation().replace(animalDeadTYPE, location.getCountAnimalsMapOnLocation().get(animalDeadTYPE) - 1);
+            synchronized (statistics) {
                 statistics.getStatistics().replace(animalDeadTYPE, statistics.getStatistics().get(animalDeadTYPE) - 1);
+            }
             fabricOfAnimals.getPoolAnimals().get(animalDeadTYPE).add(animalDead);
         }
     }

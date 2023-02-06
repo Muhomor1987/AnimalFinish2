@@ -29,7 +29,9 @@ public class Lifer implements Runnable {
                 if (entity.getWeight() < entity.getWEIGHT_MAX() / 2) {
                     iterator.remove();
                     fabricOfAnimals.getPoolAnimals().get(entity.getTYPE()).add(entity);
-                    statistics.getStatistics().replace(entity.getTYPE(), statistics.getStatistics().get(entity.getTYPE()) - 1);
+                    synchronized (statistics) {
+                        statistics.getStatistics().replace(entity.getTYPE(), statistics.getStatistics().get(entity.getTYPE()) - 1);
+                    }
                     location.getCountAnimalsMapOnLocation().put(entity.getTYPE(), location.getCountAnimalsMapOnLocation().get(entity.getTYPE()) - 1);
                 }
             }
@@ -43,12 +45,12 @@ public class Lifer implements Runnable {
                 Location location = island.getLocations()[i][j];
                 try {
                     if (island.getLocations()[i][j].getLock().tryLock(30, TimeUnit.MILLISECONDS)) {
-                        Iterator<Entity> iterator = location.getAnimalsIn().iterator();
-                        lifeCycle(location, iterator);
+/*                        Iterator<Entity> iterator = location.getAnimalsIn().iterator();
+                        lifeCycle(location, iterator);*/
                         Iterator<Entity> iterator1 = location.getAnimalsOnLocation().iterator();
                         lifeCycle(location, iterator1);
-                        Iterator<Entity> iterator2 = location.getAnimalsForMoving().iterator();
-                        lifeCycle(location, iterator2);
+/*                        Iterator<Entity> iterator2 = location.getAnimalsForMoving().iterator();
+                        lifeCycle(location, iterator2);*/
                     }
                 } catch (InterruptedException e) {
                     System.out.println(e.getMessage());
